@@ -55,9 +55,6 @@ jobs:
           }' > provider.tf
           terraform init -backend=false 
 
-      # - name: Verify state reinitialization
-      #   run: terraform state list || echo "State list failed; reinitializing"
-      
       - name: Initialize Terraform backend
         run: terraform init -reconfigure
 
@@ -66,9 +63,6 @@ jobs:
           terraform state list | grep module.tf-vpc | while read resource; do
             terraform destroy -target=$resource -auto-approve
           done
-      
-      # - name: Initialize Terraform backend
-      #   run: terraform init 
 
       - name: Verify state after destroy
         run: terraform state list || echo "State list failed; reinitializing"
