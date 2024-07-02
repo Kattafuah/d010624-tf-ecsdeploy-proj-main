@@ -44,7 +44,7 @@ variable "instance_tenancy" {
 variable "pazs" {
   description = "A list of Public availability zones names or ids in the region"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  default     = ["us-east-1a", "us-east-1b"]
 }
 
 variable "azs" {
@@ -132,13 +132,13 @@ variable "private_subnet_private_dns_hostname_type_on_launch" {
 variable "public_subnet_suffix" {
   description = "Suffix to append to public subnets name"
   type        = string
-  default     = "pub_sub"
+  default     = "public_subnet"
 }
 
 variable "private_subnet_suffix" {
   description = "Suffix to append to public subnets name"
   type        = string
-  default     = "pri_sub"
+  default     = "private_subnet"
 }
 
 variable "create_igw" {
