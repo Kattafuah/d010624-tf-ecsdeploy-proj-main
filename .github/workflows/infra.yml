@@ -59,7 +59,7 @@ jobs:
       #   run: terraform state list || echo "State list failed; reinitializing"
       
       - name: Initialize Terraform backend
-        run: terraform init 
+        run: terraform init -reconfigure
 
       - name: Destroy orphaned resources
         run: |
