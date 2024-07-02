@@ -42,6 +42,7 @@ variable "zone_id" {
 
 variable "dns_record_name" {
   description = "The DNS record name to be used for the service, facilitating access via a custom domain name."
+  default     = "ingkwasiattafua.com"
 }
 
 variable "container_name" {
@@ -54,12 +55,12 @@ variable "image" {
 
 variable "app_port" {
   description = "The network port that the Docker container exposes and which will be used by the load balancer to route traffic to the container."
-#   default     = 80
+  #   default     = 80
 }
 
 variable "app_count" {
   description = "The desired number of instances of the Docker container to run within the ECS service."
-#   default     = 3
+  #   default     = 3
 }
 
 variable "health_check_path" {
