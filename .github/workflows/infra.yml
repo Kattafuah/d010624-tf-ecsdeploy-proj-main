@@ -43,7 +43,7 @@ jobs:
       #   run: terraform apply --auto-approve
 
       - name: Initialize Terraform
-        run: terraform init
+        run: terraform init -reconfigure
 
       - name: Re-add provider configuration
         run: |
@@ -64,7 +64,7 @@ jobs:
       - name: Remove provider configuration
         run: |
           rm provider.tf
-          terraform init
+          terraform init -reconfigure
           terraform validate
 
       - name: Apply changes
