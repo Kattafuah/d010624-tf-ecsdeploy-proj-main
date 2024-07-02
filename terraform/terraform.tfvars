@@ -1,6 +1,7 @@
 region       = "us-east-1"
 short_region = "use1"
 account_name = "kwasi-1"
+account_id = 493475752675
 
 tags = {
   AccountName = "kwasi-1"
