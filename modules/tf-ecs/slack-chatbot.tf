@@ -106,8 +106,8 @@ module "chatbot_slack_configuration" {
   configuration_name = "ecs"
   iam_role_arn       = aws_iam_role.chatbot.arn
   logging_level      = "INFO"
-  slack_channel_id   = "T06DSNN1GNR"
-  slack_workspace_id = "C06DY4WNKPE"
+  slack_channel_id   = "C06DY4WNKPE" 
+  slack_workspace_id = "T06DSNN1GNR"
 
   sns_topic_arns = [
     aws_sns_topic.slack_notifications.arn,
