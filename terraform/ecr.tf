@@ -1,5 +1,5 @@
-module "ecr" {
-    source = "../modules/tf-ecr"
-    ecr_name = "jmtfproject"
-}
+# module "ecr" {
+#     source = "../modules/tf-ecr"
+#     ecr_name = "jmtfproject"
+# }
 
