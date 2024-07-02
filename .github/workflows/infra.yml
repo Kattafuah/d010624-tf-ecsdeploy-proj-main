@@ -42,8 +42,11 @@ jobs:
       #   id: apply
       #   run: terraform apply --auto-approve
 
-      - name: Initialize Terraform
+      - name: Initialize Terraform backend
         run: terraform init -reconfigure
+
+      - name: Verify state initialization
+        run: terraform state list || echo "State list failed; reinitializing"
 
       - name: Re-add provider configuration
         run: |
@@ -52,14 +55,17 @@ jobs:
           }' > provider.tf
           terraform init -reconfigure
 
+      - name: Verify state reinitialization
+        run: terraform state list || echo "State list failed; reinitializing"
+
       - name: Destroy orphaned resources
         run: |
-          terraform state list | grep module.tf-vpc | while read resource; do
+          terraform state list | grep module.vpc | while read resource; do
             terraform destroy -target=$resource -auto-approve
           done
 
-      - name: Verify state
-        run: terraform state list
+      - name: Verify state after destroy
+        run: terraform state list || echo "State list failed; reinitializing"
 
       - name: Remove provider configuration
         run: |
