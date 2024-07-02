@@ -53,7 +53,7 @@ jobs:
           echo 'provider "aws" {
             region = "us-east-1"  # replace with your AWS region
           }' > provider.tf
-          terraform init -migrate-state
+          terraform init -migrate-state -auto-approve
 
       - name: Verify state reinitialization
         run: terraform state list || echo "State list failed; reinitializing"
@@ -70,7 +70,7 @@ jobs:
       - name: Remove provider configuration
         run: |
           rm provider.tf
-          terraform init -migrate-state
+          terraform init -migrate-state -auto-approve
           terraform validate
 
       - name: Apply changes
