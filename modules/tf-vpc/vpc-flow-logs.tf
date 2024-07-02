@@ -14,7 +14,7 @@ locals {
 # Flow Log
 ################################################################################
 
-resource "aws_flow_log" "this" {
+resource "aws_flow_log" "tfprojectvpc" {
   count = local.enable_flow_log ? 1 : 0
 
   log_destination_type       = var.flow_log_destination_type
