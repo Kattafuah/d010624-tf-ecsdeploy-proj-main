@@ -37,4 +37,3 @@
 #   value = join(",", module.vpc.private_subnets)
 # }
 
-
