@@ -34,10 +34,10 @@ jobs:
         id: init
         run: terraform init
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan       
+      # - name: Terraform Plan
+      #   id: plan
+      #   run: terraform plan       
 
-      - name: Terraform apply
-        id: apply
-        run: terraform apply --auto-approve
+      # - name: Terraform apply
+      #   id: apply
+      #   run: terraform apply --auto-approve
