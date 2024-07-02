@@ -23,7 +23,6 @@ vpc_subnets_map = {
       "10.18.2.0/24" = "private-a"
       "10.18.3.0/24" = "private-b"
       "10.18.4.0/24" = "private-c"
-      "10.18.5.0/24" = "private-d"
     }
   }
 }
