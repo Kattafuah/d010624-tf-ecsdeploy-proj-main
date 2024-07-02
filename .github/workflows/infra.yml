@@ -30,9 +30,9 @@ jobs:
         with:
           terraform_version: "1.6.6"
 
-      - name: Terraform init
-        id: init
-        run: terraform init
+      # - name: Terraform init
+      #   id: init
+      #   run: terraform init
 
       # - name: Terraform Plan
       #   id: plan
@@ -41,3 +41,31 @@ jobs:
       # - name: Terraform apply
       #   id: apply
       #   run: terraform apply --auto-approve
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Re-add provider configuration
+        run: |
+          echo 'provider "aws" {
+            region = "us-east-1"  # replace with your AWS region
+          }' > provider.tf
+          terraform init
+
+      - name: Destroy orphaned resources
+        run: |
+          terraform state list | grep module.vpc | while read resource; do
+            terraform destroy -target=$resource -auto-approve
+          done
+
+      - name: Verify state
+        run: terraform state list
+
+      - name: Remove provider configuration
+        run: |
+          rm provider.tf
+          terraform init
+          terraform validate
+
+      - name: Apply changes
+        run: terraform apply -auto-approve
