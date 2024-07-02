@@ -60,7 +60,7 @@ jobs:
 
       - name: Destroy orphaned resources
         run: |
-          terraform state list | grep module.vpc | while read resource; do
+          terraform state list | grep module.tf-vpc | while read resource; do
             terraform destroy -target=$resource -auto-approve
           done
 
