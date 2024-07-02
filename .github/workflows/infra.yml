@@ -43,7 +43,7 @@ jobs:
       #   run: terraform apply --auto-approve
 
       - name: Initialize Terraform backend
-        run: terraform init -reconfigure
+        run: terraform init -migrate-state
 
       - name: Verify state initialization
         run: terraform state list || echo "State list failed; reinitializing"
@@ -53,7 +53,7 @@ jobs:
           echo 'provider "aws" {
             region = "us-east-1"  # replace with your AWS region
           }' > provider.tf
-          terraform init -reconfigure
+          terraform init -migrate-state
 
       - name: Verify state reinitialization
         run: terraform state list || echo "State list failed; reinitializing"
@@ -70,7 +70,7 @@ jobs:
       - name: Remove provider configuration
         run: |
           rm provider.tf
-          terraform init -reconfigure
+          terraform init -migrate-state
           terraform validate
 
       - name: Apply changes
