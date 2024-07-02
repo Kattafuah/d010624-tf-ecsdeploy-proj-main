@@ -50,11 +50,11 @@ jobs:
           echo 'provider "aws" {
             region = "us-east-1"  # replace with your AWS region
           }' > provider.tf
-          terraform init
+          terraform init -reconfigure
 
       - name: Destroy orphaned resources
         run: |
-          terraform state list | grep module.vpc | while read resource; do
+          terraform state list | grep module.tf-vpc | while read resource; do
             terraform destroy -target=$resource -auto-approve
           done
 
