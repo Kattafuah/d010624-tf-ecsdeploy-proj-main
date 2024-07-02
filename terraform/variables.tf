@@ -56,3 +56,4 @@ variable "domain_name" {
   type    = string
   default = "ingkwasiattafua.com"
 }
+
