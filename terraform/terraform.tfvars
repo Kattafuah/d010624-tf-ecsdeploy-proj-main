@@ -1,9 +1,9 @@
-region       = "us-east-1"
-short_region = "use1"
-account_name = "kwasi-1"
-account_id   = 493475752675
-zone_id      = Z0409119JJPH7TF04AWF
-name         = "ingkwasiattafua.com"
+region          = "us-east-1"
+short_region    = "use1"
+account_name    = "kwasi-1"
+account_id      = 493475752675
+zone_id         = "Z0409119JJPH7TF04AWF"
+
 
 tags = {
   AccountName = "kwasi-1"
