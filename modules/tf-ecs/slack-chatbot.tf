@@ -99,17 +99,17 @@ resource "aws_iam_role_policy" "chatbot_policy" {
   })
 }
 
-module "chatbot_slack_configuration" {
-  source  = "waveaccounting/chatbot-slack-configuration/aws"
-  version = "1.1.0"
+# module "chatbot_slack_configuration" {
+#   source  = "waveaccounting/chatbot-slack-configuration/aws"
+#   version = "1.1.0"
 
-  configuration_name = "ecs"
-  iam_role_arn       = aws_iam_role.chatbot.arn
-  logging_level      = "INFO"
-  slack_channel_id   = "C06DY4WNKPE" 
-  slack_workspace_id = "T06DSNN1GNR"
+#   configuration_name = "ecs"
+#   iam_role_arn       = aws_iam_role.chatbot.arn
+#   logging_level      = "INFO"
+#   slack_channel_id   = "C06DY4WNKPE" 
+#   slack_workspace_id = "T06DSNN1GNR"
 
-  sns_topic_arns = [
-    aws_sns_topic.slack_notifications.arn,
-  ]
-}
+#   sns_topic_arns = [
+#     aws_sns_topic.slack_notifications.arn,
+#   ]
+# }
