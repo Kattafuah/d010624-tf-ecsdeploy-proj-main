@@ -25,12 +25,12 @@ variable "region" {
 
 variable "account_id" {
   type    = string
-  # default = data.aws_ssm_parameter.account_id_param.value
+  default = data.aws_ssm_parameter.account_id_param.value
 }
 
 variable "account_name" {
   type    = string
-  # default = data.aws_ssm_parameter.account_name_param.value
+  default = data.aws_ssm_parameter.account_name_param.value
 }
 
 # variable "account_name" {
