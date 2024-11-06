@@ -23,11 +23,21 @@ variable "region" {
   type        = string
 }
 
-variable "account_name" {
+variable "account_id" {
+  type    = string
+  default = data.aws_ssm_parameter.account_id_param.value
 }
 
-variable "account_id" {
+variable "account_name" {
+  type    = string
+  default = data.aws_ssm_parameter.account_name_param.value
 }
+
+# variable "account_name" {
+# }
+
+# variable "account_id" {
+# }
 
 #################################################################
 # VPC
@@ -46,7 +56,7 @@ variable "vpc_subnets_map" {
 #################################################################
 variable "zone_id" {
   type    = string
-  default = "ZZ0409119JJPH7TF04AWF"
+  default = data.aws_ssm_parameter.zone_id_param.value
 }
 
 variable "zone_name" {

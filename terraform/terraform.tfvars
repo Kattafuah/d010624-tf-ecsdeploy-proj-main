@@ -1,12 +1,12 @@
 region          = "us-east-1"
 short_region    = "use1"
-account_name    = "kwasi-1"
-account_id      = 493475752675
-zone_id         = "Z0409119JJPH7TF04AWF"
+account_name    = var.account_name
+account_id      = var.account_id
+zone_id         = var.zone_id
 
 
 tags = {
-  AccountName = "kwasi-1"
+  AccountName = var.account_name
   Owner       = "kattafuah@gmail.com"
   Terraform   = true
   Department  = "Training"

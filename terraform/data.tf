@@ -18,3 +18,15 @@
 #     name = "/${var.name}/global/acm/certificate/arn" 
 # }
 
+data "aws_ssm_parameter" "zone_id_param" {
+  name = "zoneid"  
+  }
+
+data "aws_ssm_parameter" "account_id_param" {
+  name = "account_id"  
+  }
+
+data "aws_ssm_parameter" "account_name_param" {
+  name = "account_name"  
+  }
+  
