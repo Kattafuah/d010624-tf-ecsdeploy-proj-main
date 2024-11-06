@@ -56,7 +56,7 @@ variable "vpc_subnets_map" {
 #################################################################
 variable "zone_id" {
   type    = string
-  # default = data.aws_ssm_parameter.zone_id_param.value
+  default = "data.aws_ssm_parameter.zone_id_param.value"
 }
 
 variable "zone_name" {
