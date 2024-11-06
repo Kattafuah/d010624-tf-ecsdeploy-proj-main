@@ -6,7 +6,7 @@ short_region    = "use1"
 
 
 tags = {
-  AccountName = data.aws_ssm_parameter.account_name_param.value
+  AccountName = "data.aws_ssm_parameter.account_name_param.value"
   Owner       = "kattafuah@gmail.com"
   Terraform   = true
   Department  = "Training"
