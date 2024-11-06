@@ -11,7 +11,7 @@ module "ecs" {
   ssl_certificate_arn = data.aws_ssm_parameter.certificate_arn.value
   container_name      = "jmtfproject"
   image               = "kattafuah/brokencrystals:nodejs-88bd29899dba6db1295d88e11b709568f1d42d15" #"chriscloudaz/netflix:latest" #"213939666921.dkr.ecr.us-west-2.amazonaws.com/jomacsit"
-  app_port            = 80
+  app_port            = 3000
   app_count           = 2
   container_memory    = 2048
   container_cpu       = 1024
