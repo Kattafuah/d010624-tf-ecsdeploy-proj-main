@@ -1,12 +1,12 @@
 region          = "us-east-1"
 short_region    = "use1"
-account_name    = var.account_name
-account_id      = var.account_id
-zone_id         = var.zone_id
+account_name    = data.aws_ssm_parameter.account_name_param.value
+account_id      = data.aws_ssm_parameter.account_id_param.value
+zone_id         = data.aws_ssm_parameter.zone_id_param.value
 
 
 tags = {
-  AccountName = var.account_name
+  AccountName = data.aws_ssm_parameter.account_name_param.value
   Owner       = "kattafuah@gmail.com"
   Terraform   = true
   Department  = "Training"
